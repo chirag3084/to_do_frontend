@@ -60,23 +60,3 @@ export const deleteTaskAPI = async (data: {
 
 // Add this to the bottom of tasks.ts
 
-// 1. Define the response shape (Update this based on what your API actually returns)
-export interface AnalyzeResponse {
-  label: string; // e.g., "POSITIVE", "NEGATIVE"
-  score: number; // e.g., 0.98
-}
-
-// 2. The API Function
-export const analyzeTextAPI = async (text: string) => {
-  // We use the full URL here since it's different from your localhost backend
-  const response = await axios.post<AnalyzeResponse>(
-    "https://chiragsurti10-to-do.hf.space/analyze",
-    {
-      text: text,
-    }
-  );
-
-  return response.data;
-};
-      
-
