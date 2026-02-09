@@ -14,3 +14,11 @@ createRoot(document.getElementById("root")!).render(
     </QueryClientProvider>
   </StrictMode>,
 );
+
+import axios from 'axios';
+
+const response = await axios.post('https://chiragsurti10-to-do.hf.space/analyze', {
+  text: 'Hello, world!'
+});
+
+// response.data will be type 'any' here unless configured otherwise
