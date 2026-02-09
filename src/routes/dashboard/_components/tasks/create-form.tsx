@@ -172,31 +172,3 @@ export const CreateForm = () => {
     </Form>
   );
 };
-import { analyzeTextAPI } from "@/api/tasks"; // Import the new function
-import { useState } from "react";
-
-// Inside your component...
-const [analysisResult, setAnalysisResult] = useState(null);
-
-const handleAnalyze = async () => {
-  // Get the current text from your form state or local state
-  // Example: const content = form.getValues("content"); 
-  const content = "User typed content here..."; 
-
-  if (!content) return;
-
-  try {
-    const data = await analyzeTextAPI(content);
-    console.log("Analysis:", data);
-    setAnalysisResult(data);
-    
-    // Optional: You could auto-fill tags or status based on this data
-    // if (data.label === "URGENT") form.setValue("status", "urgent");
-
-  } catch (error) {
-    console.error("Failed to analyze:", error);
-  }
-};
-
-// In your JSX:
-// <button type="button" onClick={handleAnalyze}>Analyze Task</button>
